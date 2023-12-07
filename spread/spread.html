@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button onclick="basitSpread()">Basit Spread</button>
+<button onclick="arrayKopyala()">Array Kopyala</button>
+<button onclick="objeKopyalama()">Obje Kopyala</button>
+<button onclick="dizileriBirlestirme()">Dizileri Birleştirme</button>
+<button onclick="objeBirlestirme()">Obje Birleştirme</button>
+<button onclick="parcalaraAyirma()">Parçalara ayırma</button>
+<button onclick="fonksiyonlaraParametreGonderme()">Fonksiyona N Parametre Gönderme</button>
+<button onclick="fonksiyonlaraParametreGonderme2()">Fonksiyon Parametre Gönderme Birleştirme</button>
+
+
+    <script>
+
+   function basitSpread() {
+    const meyveler = ['Elma','Armut','portakal','mandalina'];
+    console.log(...meyveler);
+   }
+
+   function arrayKopyala() {
+    let meyveler = ['Elma','Armut','portakal','mandalina'];
+    let meyveler_copy = [...meyveler];
+    console.log(meyveler_copy);
+    meyveler.push('çilek');
+    console.log(meyveler_copy);
+    console.log(meyveler);
+
+   }
+
+   function objeKopyalama() {
+    const user = {
+        name :'hakan',
+        surname :'yılmaz',
+    }
+
+    const userCopy = {...user};
+    console.log(userCopy);
+    user.age= 35;
+    console.log(userCopy);
+   }
+
+   function dizileriBirlestirme() {
+    const erkekIsimleri = ["Hakak","Mehmet","Hüseyin"];
+    const kadinIsimleri = ["Aslı","Merve","Handan"];
+    const isimler = [...erkekIsimleri,...kadinIsimleri];
+    console.log(isimler);
+   }
+
+   function objeBirlestirme() {
+
+    const kullanici = {
+        name : "ibrahim",
+        surname : "gökyar" 
+    }
+
+    const evcilHayvanlar = {
+        pets : {
+            dog : "Yaban",
+            cats : ["boncuk","pamuk","şanslı"]
+        }
+    }
+
+    const userDetail = {...kullanici,...evcilHayvanlar};
+
+    console.log(userDetail);
+   }
+
+   function parcalaraAyirma() {
+    let username = "ibrahimgokyar"
+    let chars = [...username]
+    console.log(chars);
+   }
+
+   function kareAl(...numbers ) {
+    return numbers.map(number => number * 2);
+   }
+
+   function fonksiyonlaraParametreGonderme()
+   {
+    console.log(kareAl(1,3,5,7,11,14,15,22,23,34,36,38));
+   }
+
+   function stringBirlestir(name,surname) {
+    return `${name} ${surname}`;
+   }
+
+
+   function fonksiyonlaraParametreGonderme2() 
+   {
+    let users = ["ibrahim","gökyar"];
+    console.log(stringBirlestir(...users));
+   }
+
+    </script>
+</body>
+</html>
